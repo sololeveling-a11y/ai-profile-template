@@ -2,7 +2,7 @@
 
 在你自己的私有副本 `<your-username>/<your-private-repo>` 里使用这份清单。勾选可以留在本地，也可以提交。勾选本身不能代替你打开页面看过。
 
-本仓库没有脚本，也没有 GitHub Actions。没有任何自动化会替你完成本清单。规则说明见 [AGENTS.md](AGENTS.md)，红线摘要见 [README.md](README.md)。
+本仓库没有脚本，也没有 GitHub Actions。没有任何自动化会替你完成本清单。规则说明见 [AGENTS.md](AGENTS.md)，红线摘要见 [README.md](README.md) 与 [README_EN.md](README_EN.md)。
 
 文档链接指向 GitHub 的英文文档。
 
