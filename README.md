@@ -1,14 +1,49 @@
+中文 · [English](README_EN.md)
+
 # 跨 AI 个人档案模板
 
-用你自己的**私有** GitHub 仓库，保存一份 Markdown 写成的个人背景。Git 负责版本。内容不绑定某一家模型或聊天产品。换电脑、换 AI 工具时，你仍可以从这个仓库读取同一份背景。
+用你自己的 **Private** GitHub 仓库保存一份 Markdown 背景。Git 负责版本，内容不绑定某一家模型。换工具时，在当次对话里用可复制提示词授权读取，对方才能复用同一份背景。要改档案，另一次明确授权。
 
-本仓库是公开模板，地址是 [sololeveling-a11y/ai-profile-template](https://github.com/sololeveling-a11y/ai-profile-template)。这里应当只保留说明、空模板和标明虚构的示例。填好的档案只放在你新建的私有仓库 `<your-username>/<your-private-repo>` 里。
+本仓库是公开模板：[sololeveling-a11y/ai-profile-template](https://github.com/sololeveling-a11y/ai-profile-template)。这里只保留说明、空模板和标明虚构的示例。填好的内容只放在你新建的 `<your-username>/<your-private-repo>`。个人内容不要推回这个公开仓库。
 
-English: this is a blank public template for a private, vendor-neutral personal context archive. The guide is written in Chinese.
+适合希望自己掌握长期背景、并在多种 AI 工具之间换用的人。你需要一个 GitHub 账号，不需要先写程序。本仓库没有脚本，也没有 GitHub Actions。档案可以一直很短。短、并且标清层级，比把整段聊天记录放进来更不容易误导模型。
 
-适合希望自己掌握长期背景、并在多种 AI 工具之间换用的人。你需要一个 GitHub 账号。你不需要先写程序。本仓库没有脚本，也没有 GitHub Actions。
+下面是入口。完整的安全规范、事实分层和权限限制都保留在后文，不因为这段简写而放宽。
 
-档案可以一直很短。短、并且标清层级，比把整段聊天记录放进来更不容易误导模型。
+## 为什么用它
+
+背景放在你控制的仓库里，换电脑或换 AI 时仍指向同一份文件。每家产品、每一次对话都要单独授权。`AGENTS.md` 是可携带的说明，有的工具会读，有的完全不读。没有任何步骤会把这份档案自动同步到所有 AI。
+
+## 怎么开始
+
+1. 用本模板新建仓库，可见性选 **Private**。详细按钮见 [快速开始](#quick-start)。
+2. 只在那个私有副本里填写能用的最小部分。
+3. 复制 [prompts/start.md](prompts/start.md)。读得到仓库就用仓库访问版；读不到就用手动粘贴版。
+4. 确认写入、提交和推送分成三次允许。用语见 [prompts/update.md](prompts/update.md)。
+
+## 隐私边界
+
+Private 表示这个仓库在 GitHub 上不公开。你授权某个 AI 读取文件，或把删减后的 Markdown 粘贴进对话之后，这些文字就进入该产品，不再只留在 GitHub。
+
+密码、令牌、支付与证件信息、精确到门牌的住址、他人的私人信息、未经删减的原始聊天记录，不要写入仓库，也不要为了接通 GitHub 而贴进提示词。完整红线见 [隐私与安全红线](#privacy)。
+
+```mermaid
+graph TD;
+    A["公开模板"]-->B["你的 Private 副本"];
+    B-->C["当次对话授权读取"];
+    C-->D["换 AI 时重新授权或粘贴删减稿"];
+    C-->E["写入、提交、推送各自另说"];
+```
+
+图和下面五句是同一顺序。GitHub 文档说明 Markdown 里的 Mermaid 会在仓库文件中渲染，见 [Creating diagrams](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)。读屏时以这五句为准。
+
+1. 从公开模板创建你的 Private 副本。
+2. 只在副本里填写。
+3. 每一次对话单独授权读取。
+4. 换一个 AI 时重新授权；它打不开仓库时，改为你自己删减后的粘贴。
+5. 写入、提交、推送各说一次。
+
+<a id="boundaries" name="boundaries"></a>
 
 ## 边界
 
@@ -25,6 +60,7 @@ English: this is a blank public template for a private, vendor-neutral personal 
 ```text
 .
 ├── README.md
+├── README_EN.md
 ├── AGENTS.md
 ├── profile.md
 ├── preferences.md
@@ -45,6 +81,7 @@ English: this is a blank public template for a private, vendor-neutral personal 
 | 路径 | 用途 | 你需要做什么 |
 | --- | --- | --- |
 | [README.md](README.md) | 给人看的用法、边界和提示词入门 | 保持为说明，不要改成日记 |
+| [README_EN.md](README_EN.md) | 可独立使用的英文说明，边界与本页相同 | 保持为说明，不要改成日记 |
 | [AGENTS.md](AGENTS.md) | 给 AI 的仓库级规则；不保证被自动加载 | 一般保持模板规则，必要时加一条你的长期禁令 |
 | [profile.md](profile.md) | 长期背景、带日期的当前阶段、工具环境、待确认 | 在私有副本里填写 |
 | [preferences.md](preferences.md) | 语言与回复方式、协作边界、未经要求不要做的事、公私分离 | 在私有副本里填写 |
@@ -55,6 +92,8 @@ English: this is a blank public template for a private, vendor-neutral personal 
 | [PRIVACY_CHECKLIST.md](PRIVACY_CHECKLIST.md) | 可见性、Pages、协作者、秘密与身份边界 | 提交前和定期复查时逐项看过 |
 | [examples/demo-profile.md](examples/demo-profile.md) | 虚构示例，演示密度和日期写法 | 不要当成你的事实；私有副本里可以删掉整个 `examples/` |
 | [LICENSE](LICENSE) | MIT 许可 | 保留版权声明 |
+
+<a id="quick-start" name="quick-start"></a>
 
 ## 快速开始
 
@@ -248,7 +287,7 @@ English: this is a blank public template for a private, vendor-neutral personal 
 
 ### 三种工具环境怎么用
 
-具体能不能读仓库，以该工具当前的权限和文档为准。下表按能力分类，不表示某一家产品被这份模板认证过。
+具体能不能读仓库，以该工具当前的权限和文档为准。下表按能力分类，不表示某一家产品被这份模板认证过。Cursor、Claude、ChatGPT 的最短步骤见 [常见工具的最短接入](#tools)。文档里的按钮在你的界面上对不上时，用手动粘贴，不要另找一条没写在这里的路径。
 
 | 场景 | 档案怎样到达它 | 使用哪份提示词 | 怎样写回档案 | 应当停下的情况 |
 | --- | --- | --- | --- | --- |
@@ -271,6 +310,62 @@ English: this is a blank public template for a private, vendor-neutral personal 
 - 提示词和 Git 地址里都没有令牌。
 
 后续消息要指出上一条的具体问题，并缩小范围。不要在每条后续消息里重新给予推送许可。更多可复制的后续短句见 [prompts/README.md](prompts/README.md)。
+
+<a id="tools" name="tools"></a>
+
+## 常见工具的最短接入
+
+这一节摘自 2026-11-25 仍能打开的厂商文档，用来选一条最短路径。本模板没有在 Cursor、Claude 或 ChatGPT 里执行这些步骤，也不构成认证。套餐、地区和界面不同，入口可能不存在。对不上就停，改用手动粘贴。
+
+读取和更新是两次授权。下面的步骤只把背景送进这一次对话。写入、提交、推送仍要另说“确认写入”“可以提交”“可以推送”。
+
+### 手动粘贴：读不到仓库时用这条
+
+任何产品都可以用这条，包括上面三家的入口不存在、私有仓库授不了权、或你不想把仓库连接给该产品的时候。
+
+1. 在你自己的电脑上打开私有副本，复制 [profile.md](profile.md)、[preferences.md](preferences.md)、[goals.md](goals.md)、[projects.md](projects.md)，以及 [updates.md](updates.md) 里最新的几条。
+2. 粘贴前删掉秘密、支付与证件信息、精确住址、他人私人信息和整段原始聊天记录。提示词要求对方不要复述秘密，但不能把已经粘贴出去的文字从对方的对话记录里收回。
+3. 不要复制 [examples/demo-profile.md](examples/demo-profile.md)。
+4. 使用 [prompts/start.md](prompts/start.md) 的手动粘贴版。不要向对方索取或提供令牌，也不要让它“自己去连 GitHub”。
+
+### Cursor：打开本地副本
+
+最短的读取方式是让 Cursor 看见你已经克隆的文件夹，而不是去接 Cloud Agent。
+
+1. 克隆你的私有副本。远程地址只用 `git@github.com:<your-username>/<your-private-repo>.git` 或 `https://github.com/<your-username>/<your-private-repo>.git`。
+2. 用 Cursor 打开这个仓库目录。文档把根目录的 `AGENTS.md` 当作 Agent 指令，并写明规则不影响 Cursor Tab。同一页写明：规则里点名的文件不会被原文塞进提示词，Agent 在需要时再用工具去读，编辑器、CLI 和 Cloud Agents 都是这样：[Rules](https://cursor.com/docs/rules)。因此打开目录不等于 `profile.md` 已经进入这次对话，也不等于同步到其他产品。
+3. 在 Agent 对话里粘贴 [prompts/start.md](prompts/start.md) 的仓库访问版，把占位符换成你的私有仓库。这一次只读。
+4. 对方若不能确认该仓库是 Private，或读不到文件，就停，改用手动粘贴版。你让它读到的文字会进入这次请求的模型上下文，不再只留在 GitHub。保留多久以 Cursor 当时的隐私设置为准，本页不代替那份政策。
+
+不要把 [Cloud Agents](https://cursor.com/docs/cloud-agent) 当作只读捷径。该文档写明 Cloud Agent 会克隆仓库、在另一条分支上工作并推送，并且需要该仓库的读写权限。桌面版文档中的启动方式，是在 Agent 输入框下方的下拉菜单里选择 Cloud。同一页的排错说明写明 Free 与 Plus 不包含 Cloud Agents。读这份档案时不要选 Cloud。GitHub 集成文档写的是 Cloud Agents 与 Bugbot 的连接，设置步骤要求 Cursor 管理员和 GitHub 组织管理员，排错条目包含私有仓库权限：[GitHub](https://cursor.com/docs/integrations/github)。个人账号若看不到文档里的 Dashboard，不要猜测按钮。本模板也不要求你创建名为 `GH_TOKEN` 的个人访问令牌。
+
+### Claude：文档中的 GitHub 入口对得上才用
+
+帮助中心 [Use the GitHub integration](https://support.claude.com/en/articles/10167454-use-the-github-integration) 的页面日期是 October 20, 2026。它写的入口是：聊天界面左下角 “+”，选择 “Add from GitHub”；或在 Project knowledge 右上角 “+”，选择 “GitHub”，再在文件浏览器里挑选文件。你的屏幕上没有这些字样时，不要改用别的菜单，直接手动粘贴。
+
+对得上时：
+
+1. 只选择私有副本里的档案文件：`AGENTS.md`、`profile.md`、`preferences.md`、`goals.md`、`projects.md`，以及需要的 `updates.md`。不要为了省事授权全部仓库。
+2. 私有仓库要在 Claude 的 GitHub App 里授予该仓库。授不了就停。不要粘贴令牌，也不要把仓库地址贴进这个公开模板。
+3. 该页写明取回的是某个分支上的文件名和内容，不含提交历史、PR 或其他元数据。Project 里的 “Sync” 或 “Sync now” 是在 Claude 里手动刷新已经选过的文件，不是自动同步到 Cursor 或 ChatGPT，也不是实时镜像。
+4. 选中的文件内容由 Claude 处理，因此离开 GitHub。同一页写明：失去仓库访问之后，已发生的对话历史仍会保留。
+5. 再粘贴 [prompts/start.md](prompts/start.md) 的仓库访问版。这次授权是读取。该帮助页没有把“加上 GitHub 文件”定义成可以修改你的 GitHub 仓库。
+
+### ChatGPT：文档中的 GitHub 连接对得上才用
+
+OpenAI 帮助中心 [Connecting GitHub to ChatGPT](https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt) 在 2026-11-25 写的路径是：Settings > Plugins，选择 GitHub 或包含它的插件，然后到 GitHub 安装应用并选择仓库。屏幕上不是 “Plugins” 时，不要改猜下一级菜单，直接手动粘贴。
+
+该页同时写明这几件限制：
+
+- 连接后按需取回已授权仓库里的内容，包含代码、README 和其他文档。它不建立一份同步索引，也没有按仓库单独配置的索引。
+- 能否在标准聊天、deep research 或 agent 里使用，取决于套餐、工作区和界面。标准聊天里看不到时，不要假定另一个模式一定有。
+- 私有或新建仓库要等 ChatGPT 的 GitHub 应用装到正确的账号或组织，并且该仓库已被选中并批准。组织可能还要管理员批准。
+- FAQ 写明：ChatGPT 里的这个 GitHub 应用只用于读取、分析和搜索。要生成、修改并直接推送到 GitHub，文档指向 Codex。本模板不提供 Codex 的写入步骤。
+- 检索时，ChatGPT 会根据你的问题生成查询并发给 GitHub。取回的内容进入 ChatGPT。商业版默认不用于改进模型；个人账号则取决于 “Improve the model for everyone” 一类设置。以该页 “Data and privacy” 为准。
+
+仓库确实出现在已授权列表之后，粘贴 [prompts/start.md](prompts/start.md) 的仓库访问版，并写明只读哪一个 `<your-username>/<your-private-repo>`。连接 GitHub 不等于可以提交或推送。
+
+<a id="privacy" name="privacy"></a>
 
 ## 隐私与安全红线
 
